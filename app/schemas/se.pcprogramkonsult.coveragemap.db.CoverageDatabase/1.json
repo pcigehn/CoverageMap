@@ -1,0 +1,432 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "0b1e8fce13fe9b55bcf35a5db275757e",
+    "entities": [
+      {
+        "tableName": "cell_measurements",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `locationId` INTEGER NOT NULL, `registered` INTEGER NOT NULL, `eNodeB` INTEGER NOT NULL, `cid` INTEGER NOT NULL, `earfcn` INTEGER NOT NULL, `pci` INTEGER NOT NULL, `tac` INTEGER NOT NULL, `rsrp` INTEGER NOT NULL, `rsrq` INTEGER NOT NULL, `ta` INTEGER NOT NULL, `rssi` INTEGER NOT NULL, `snr` INTEGER NOT NULL, FOREIGN KEY(`locationId`) REFERENCES `location_measurements`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "locationId",
+            "columnName": "locationId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "registered",
+            "columnName": "registered",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "eNodeB",
+            "columnName": "eNodeB",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cid",
+            "columnName": "cid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "earfcn",
+            "columnName": "earfcn",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pci",
+            "columnName": "pci",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tac",
+            "columnName": "tac",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rsrp",
+            "columnName": "rsrp",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rsrq",
+            "columnName": "rsrq",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "ta",
+            "columnName": "ta",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "rssi",
+            "columnName": "rssi",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "snr",
+            "columnName": "snr",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_cell_measurements_locationId",
+            "unique": false,
+            "columnNames": [
+              "locationId"
+            ],
+            "createSql": "CREATE  INDEX `index_cell_measurements_locationId` ON `${TABLE_NAME}` (`locationId`)"
+          },
+          {
+            "name": "index_cell_measurements_eNodeB",
+            "unique": false,
+            "columnNames": [
+              "eNodeB"
+            ],
+            "createSql": "CREATE  INDEX `index_cell_measurements_eNodeB` ON `${TABLE_NAME}` (`eNodeB`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "location_measurements",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "locationId"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "location_measurements",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `coord` INTEGER, `trace` INTEGER, `prevId` INTEGER, `latitude` REAL NOT NULL, `longitude` REAL NOT NULL, `measuredAt` INTEGER, `dataActivity` INTEGER NOT NULL, `dataState` INTEGER NOT NULL, FOREIGN KEY(`trace`) REFERENCES `traces`(`id`) ON UPDATE NO ACTION ON DELETE CASCADE )",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "coord",
+            "columnName": "coord",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "trace",
+            "columnName": "trace",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "prevId",
+            "columnName": "prevId",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "latitude",
+            "columnName": "latitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitude",
+            "columnName": "longitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "measuredAt",
+            "columnName": "measuredAt",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "dataActivity",
+            "columnName": "dataActivity",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "dataState",
+            "columnName": "dataState",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_location_measurements_coord",
+            "unique": false,
+            "columnNames": [
+              "coord"
+            ],
+            "createSql": "CREATE  INDEX `index_location_measurements_coord` ON `${TABLE_NAME}` (`coord`)"
+          },
+          {
+            "name": "index_location_measurements_trace",
+            "unique": false,
+            "columnNames": [
+              "trace"
+            ],
+            "createSql": "CREATE  INDEX `index_location_measurements_trace` ON `${TABLE_NAME}` (`trace`)"
+          }
+        ],
+        "foreignKeys": [
+          {
+            "table": "traces",
+            "onDelete": "CASCADE",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "trace"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
+      },
+      {
+        "tableName": "clusters",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`coord` INTEGER NOT NULL, `latitude` REAL NOT NULL, `longitude` REAL NOT NULL, `lastMeasurement` INTEGER, PRIMARY KEY(`coord`))",
+        "fields": [
+          {
+            "fieldPath": "coord",
+            "columnName": "coord",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "latitude",
+            "columnName": "latitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitude",
+            "columnName": "longitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lastMeasurement",
+            "columnName": "lastMeasurement",
+            "affinity": "INTEGER",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "coord"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "enodebs",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT, `latitude` REAL NOT NULL, `longitude` REAL NOT NULL, `located` INTEGER NOT NULL, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "latitude",
+            "columnName": "latitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "longitude",
+            "columnName": "longitude",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "located",
+            "columnName": "located",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "identified_cells",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`eNodeB` INTEGER NOT NULL, `cid` INTEGER NOT NULL, `pci` INTEGER NOT NULL, `earfcn` INTEGER NOT NULL, `swLat` REAL NOT NULL, `swLon` REAL NOT NULL, `neLat` REAL NOT NULL, `neLon` REAL NOT NULL, `extSwLat` REAL NOT NULL, `extSwLon` REAL NOT NULL, `extNeLat` REAL NOT NULL, `extNeLon` REAL NOT NULL, PRIMARY KEY(`eNodeB`, `cid`))",
+        "fields": [
+          {
+            "fieldPath": "eNodeB",
+            "columnName": "eNodeB",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cid",
+            "columnName": "cid",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pci",
+            "columnName": "pci",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "earfcn",
+            "columnName": "earfcn",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "swLat",
+            "columnName": "swLat",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "swLon",
+            "columnName": "swLon",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "neLat",
+            "columnName": "neLat",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "neLon",
+            "columnName": "neLon",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "extSwLat",
+            "columnName": "extSwLat",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "extSwLon",
+            "columnName": "extSwLon",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "extNeLat",
+            "columnName": "extNeLat",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "extNeLon",
+            "columnName": "extNeLon",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "eNodeB",
+            "cid"
+          ],
+          "autoGenerate": false
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "traces",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `start` INTEGER, `name` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "start",
+            "columnName": "start",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"0b1e8fce13fe9b55bcf35a5db275757e\")"
+    ]
+  }
+}

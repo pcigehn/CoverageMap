@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">Coverage Map</string>
+    <string name="title_activity_maps">Coverage Map</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="grid_map">Grid Map</string>
+    <string name="trace_map">Trace Map</string>
+    <string name="enodeb_filter">ENodeB Filter</string>
+    <string name="earfcn_filter">EARFCN Filter</string>
+    <string name="handover_type_filter">Handover Filter</string>
+    <string name="select_trace">Select Trace</string>
+    <string name="replay_trace">Replay Trace</string>
+    <string name="delete_trace">Delete Trace</string>
+    <string name="select_parameter">Select parameter</string>
+    <string name="enodeb">eNodeB</string>
+    <string name="cid">CID</string>
+    <string name="earfcn">EARFCN</string>
+    <string name="pci">PCI</string>
+    <string name="tac">TAC</string>
+    <string name="rsrp">RSRP</string>
+    <string name="rsrq">RSRQ</string>
+    <string name="ta">TA</string>
+    <string name="rssi">RSSI</string>
+    <string name="snr">SNR</string>
+    <string name="filter">Filter</string>
+    <string name="select_operation">Select operation</string>
+    <string name="enodeb_name">Name</string>
+    <string name="no_name">&lt;No name&gt;</string>
+    <string name="no_location">&lt;No location&gt;</string>
+</resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_select_trace"
+        android:title="@string/select_trace"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_replay_trace"
+        android:title="@string/replay_trace"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_delete_trace"
+        android:title="@string/delete_trace"
+        android:enabled="false"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_earfcn_filter"
+        android:title="@string/earfcn_filter"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_enodeb_filter"
+        android:title="@string/enodeb_filter"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_handover_type_filter"
+        android:title="@string/handover_type_filter"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_select_parameter"
+        android:title="@string/select_parameter"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_select_operation"
+        android:title="@string/select_operation"
+        app:showAsAction="never" />
+    <item
+        android:id="@+id/action_refresh"
+        android:title="@string/action_refresh"
+        app:showAsAction="never" />
+</menu>
