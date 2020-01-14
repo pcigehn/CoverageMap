@@ -2,7 +2,7 @@
 The source code to the Coverage Map Android app
 https://play.google.com/apps/testing/se.pcprogramkonsult.coveragemap
 
-To be able to compile and run and Google Maps API key is needed, one for debug and one for release builds. 
+To be able to compile and run, a Google Maps API key is needed, one for debug and one for release builds. 
 
 Please see the following template files for more information: 
 
