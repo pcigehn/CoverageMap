@@ -1,4 +1,4 @@
-# CoverageMap
+# Coverage Map
 The source code to the Coverage Map Android app
 https://play.google.com/apps/testing/se.pcprogramkonsult.coveragemap
 
