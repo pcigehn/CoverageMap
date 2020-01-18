@@ -1,6 +1,6 @@
 # Coverage Map
 The source code to the Coverage Map Android app
-https://play.google.com/apps/se.pcprogramkonsult.coveragemap
+https://play.google.com/store/apps/details?id=se.pcprogramkonsult.coveragemap
 
 To be able to compile and run, a Google Maps API key is needed, one for debug and one for release builds. 
 
