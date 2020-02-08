@@ -541,7 +541,7 @@ public class CoverageRepository {
 
     void updateLocation(
             @NonNull final LatLng latLng,
-            final List<CellInfo> cellInfos,
+            @Nullable final List<CellInfo> cellInfos,
             final int dataActivity,
             final int dataState,
             final int servingCellSnr) {
