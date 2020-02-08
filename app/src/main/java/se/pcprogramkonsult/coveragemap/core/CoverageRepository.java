@@ -541,7 +541,7 @@ public class CoverageRepository {
 
     void updateLocation(
             @NonNull final LatLng latLng,
-            @NonNull final List<CellInfo> cellInfos,
+            final List<CellInfo> cellInfos,
             final int dataActivity,
             final int dataState,
             final int servingCellSnr) {
@@ -549,12 +549,14 @@ public class CoverageRepository {
         mExecutors.diskIO().execute(() -> {
             CellInfoLte servingCell = null;
             List<CellInfoLte> cellInfoLtes = new ArrayList<>();
-            for (CellInfo cellInfo : cellInfos) {
-                if (cellInfo instanceof CellInfoLte) {
-                    CellInfoLte cellInfoLte = (CellInfoLte) cellInfo;
-                    cellInfoLtes.add(cellInfoLte);
-                    if (cellInfoLte.isRegistered()) {
-                        servingCell = cellInfoLte;
+            if (cellInfos != null) {
+                for (CellInfo cellInfo : cellInfos) {
+                    if (cellInfo instanceof CellInfoLte) {
+                        CellInfoLte cellInfoLte = (CellInfoLte) cellInfo;
+                        cellInfoLtes.add(cellInfoLte);
+                        if (cellInfoLte.isRegistered()) {
+                            servingCell = cellInfoLte;
+                        }
                     }
                 }
             }

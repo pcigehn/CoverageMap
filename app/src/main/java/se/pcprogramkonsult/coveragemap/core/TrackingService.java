@@ -221,11 +221,13 @@ public class TrackingService extends Service implements Observer<List<ENodeBEnti
     private CellInfoLte getCurrentServingCell() {
         if (mTelephonyManager != null) {
             final List<CellInfo> currentCellInfos = mTelephonyManager.getAllCellInfo();
-            for (CellInfo cellInfo : currentCellInfos) {
-                if (cellInfo instanceof CellInfoLte) {
-                    CellInfoLte cellInfoLte = (CellInfoLte) cellInfo;
-                    if (cellInfoLte.isRegistered()) {
-                        return cellInfoLte;
+            if (currentCellInfos != null) {
+                for (CellInfo cellInfo : currentCellInfos) {
+                    if (cellInfo instanceof CellInfoLte) {
+                        CellInfoLte cellInfoLte = (CellInfoLte) cellInfo;
+                        if (cellInfoLte.isRegistered()) {
+                            return cellInfoLte;
+                        }
                     }
                 }
             }
